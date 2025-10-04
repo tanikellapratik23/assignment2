@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DICED Salads | Menu</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f0f8f0;
+      color: #333;
+    }
+    a { text-decoration: none; color: inherit; }
+    header {
+      background-color: #4CAF50;
+      padding: 20px 0;
+      color: white;
+      text-align: center;
+    }
+    nav {
+      background-color: #45a049;
+      display: flex;
+      justify-content: center;
+      padding: 10px 0;
+    }
+    nav a {
+      margin: 0 15px;
+      color: white;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+    nav a:hover { color: #d4ffd4; }
+    main {
+      max-width: 1000px;
+      margin: 20px auto;
+      padding: 0 20px;
+    }
+    .intro { text-align: center; margin-bottom: 40px; }
+    .intro h2 { color: #4CAF50; }
+    .salad-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+    }
+    .salad-card {
+      background-color: white;
+      border-radius: 10px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      width: 250px;
+      text-align: center;
+      padding: 15px;
+    }
+    .salad-card img {
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
+      border-radius: 10px;
+    }
+    .salad-card h3 {
+      color: #4CAF50;
+      margin: 10px 0 5px 0;
+    }
+    .salad-card p { font-size: 0.9rem; margin: 5px 0; }
+
+    /* Chatbot button */
+    .chatbot-toggle {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #4CAF50;
+      color: white;
+      padding: 15px;
+      border-radius: 50px;
+      text-align: center;
+      cursor: pointer;
+      box-shadow: 0px 4px 10px rgba(0,0,0,0.2);
+    }
+    .chatbot-toggle:hover { background-color: #45a049; }
+
+    /* Chatbot window */
+    .chatbot-window {
+      position: fixed;
+      bottom: 80px;
+      right: 20px;
+      width: 300px;
+      max-height: 400px;
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0px 4px 15px rgba(0,0,0,0.2);
+      display: none;
+      flex-direction: column;
+      overflow: hidden;
+      animation: fadeIn 0.3s ease;
+    }
+    .chatbot-header {
+      background: #4CAF50;
+      color: white;
+      padding: 10px;
+      font-weight: bold;
+      text-align: center;
+    }
+    .chatbot-messages {
+      flex: 1;
+      padding: 10px;
+      overflow-y: auto;
+      font-size: 0.9rem;
+    }
+    .chatbot-input {
+      display: flex;
+      border-top: 1px solid #ddd;
+    }
+    .chatbot-input input {
+      flex: 1;
+      padding: 10px;
+      border: none;
+      outline: none;
+    }
+    .chatbot-input button {
+      background: #4CAF50;
+      border: none;
+      color: white;
+      padding: 10px 15px;
+      cursor: pointer;
+    }
+    .chatbot-input button:hover { background: #45a049; }
+
+    .message {
+      margin-bottom: 10px;
+      padding: 8px 12px;
+      border-radius: 10px;
+      max-width: 80%;
+    }
+    .bot { background: #e8f5e9; align-self: flex-start; }
+    .user { background: #c8e6c9; align-self: flex-end; }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    footer {
+      background-color: #4CAF50;
+      color: white;
+      text-align: center;
+      padding: 20px 0;
+      margin-top: 40px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>DICED Salads</h1>
+  </header>
+  <nav>
+    <a href="index2.html">Home</a>
+    <a href="menu.html">Menu</a>
+    <a href="builder.html">Salad Builder</a>
+    <a href="about.html">About Us</a>
+  </nav>
+  <main>
+    <section class="intro">
+      <h2>Our Menu</h2>
+      <p>Explore our fresh and healthy salads. Click on any salad for ingredients and nutrition info.</p>
+    </section>
+    <div class="salad-container">
+      <div class="salad-card">
+        <img src="/Users/pratiktanikella/Downloads/salad1.jpg" alt="Caesar Salad">
+        <h3>Caesar Salad</h3>
+        <p>Romaine lettuce, parmesan, croutons, Caesar dressing</p>
+        <p>Calories: 350 | Protein: 12g</p>
+      </div>
+      <div class="salad-card">
+        <img src="/Users/pratiktanikella/Downloads/salad2.webp" alt="Greek Salad">
+        <h3>Greek Salad</h3>
+        <p>Cucumber, tomato, olives, feta, olive oil dressing</p>
+        <p>Calories: 320 | Protein: 10g</p>
+      </div>
+      <div class="salad-card">
+        <img src="/Users/pratiktanikella/Downloads/salad3.webp" alt="Protein Power">
+        <h3>Protein Power</h3>
+        <p>Grilled chicken, spinach, quinoa, almonds, vinaigrette</p>
+        <p>Calories: 450 | Protein: 30g</p>
+      </div>
+      <div class="salad-card">
+        <img src="/Users/pratiktanikella/Downloads/salad4.jpeg" alt="Seasonal Delight">
+        <h3>Seasonal Delight</h3>
+        <p>Mixed greens, roasted veggies, goat cheese, balsamic</p>
+        <p>Calories: 360 | Protein: 14g</p>
+      </div>
+    </div>
+  </main>
+
+  <!-- Chatbot button -->
+  <div class="chatbot-toggle">💬</div>
+
+  <!-- Chatbot window -->
+  <div class="chatbot-window" id="chatbot">
+    <div class="chatbot-header">DICED Chatbot</div>
+    <div class="chatbot-messages" id="messages">
+      <div class="message bot">Hi! 👋 I’m your DICED assistant. Try asking:</div>
+      <div class="message bot">- What’s your healthiest salad?</div>
+      <div class="message bot">- What’s high protein?</div>
+      <div class="message bot">- Any vegan options?</div>
+    </div>
+    <div class="chatbot-input">
+      <input type="text" id="userInput" placeholder="Type a question...">
+      <button onclick="sendMessage()">Send</button>
+    </div>
+  </div>
+
+  <footer>
+    <p>Contact us: info@dicedsalads.com | (919) 900-7597</p>
+    <p>&copy; 2025 DICED Salads</p>
+  </footer>
+
+  <script>
+    const chatbotToggle = document.querySelector('.chatbot-toggle');
+    const chatbotWindow = document.getElementById('chatbot');
+    const messages = document.getElementById('messages');
+    const userInput = document.getElementById('userInput');
+
+    chatbotToggle.addEventListener('click', () => {
+      chatbotWindow.style.display = chatbotWindow.style.display === 'flex' ? 'none' : 'flex';
+    });
+
+    function sendMessage() {
+      const text = userInput.value.trim();
+      if (!text) return;
+      addMessage(text, 'user');
+      userInput.value = '';
+
+      setTimeout(() => {
+        let reply = getBotReply(text.toLowerCase());
+        addMessage(reply, 'bot');
+      }, 600);
+    }
+
+    function addMessage(text, sender) {
+      const msg = document.createElement('div');
+      msg.classList.add('message', sender);
+      msg.textContent = text;
+      messages.appendChild(msg);
+      messages.scrollTop = messages.scrollHeight;
+    }
+
+    function getBotReply(input) {
+      if (input.includes("healthiest")) return "The Greek Salad is light and refreshing at 320 calories.";
+      if (input.includes("protein")) return "Try our Protein Power salad with 30g protein!";
+      if (input.includes("vegan")) return "Our Seasonal Delight is vegan-friendly with roasted veggies.";
+      if (input.includes("write page")) return "Opening write page... (pretend redirect here)";
+      return "Hmm 🤔 I’m not sure, but I’ll note your question for our team!";
+    }
+  </script>
+</body>
+</html>

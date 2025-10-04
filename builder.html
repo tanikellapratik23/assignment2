@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DICED Salads | Salad Builder</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f0f8f0;
+      color: #333;
+    }
+    header {
+      background-color: #4CAF50;
+      padding: 20px 0;
+      color: white;
+      text-align: center;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 2rem;
+    }
+    nav {
+      background-color: #45a049;
+      display: flex;
+      justify-content: center;
+      padding: 10px 0;
+    }
+    nav a {
+      margin: 0 15px;
+      color: white;
+      font-weight: bold;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+    nav a:hover {
+      color: #d4ffd4;
+    }
+    main {
+      max-width: 1000px;
+      margin: 20px auto;
+      padding: 0 20px;
+    }
+    h2 {
+      text-align: center;
+      color: #4CAF50;
+      margin-bottom: 20px;
+    }
+    .builder-container {
+      background: white;
+      border-radius: 12px;
+      padding: 20px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      animation: fadeIn 1s ease;
+    }
+    .builder-container label {
+      display: block;
+      margin: 10px 0 5px;
+      font-weight: bold;
+    }
+    .builder-container select, 
+    .builder-container input[type="checkbox"] {
+      margin-bottom: 15px;
+    }
+    .builder-container button {
+      display: block;
+      margin: 20px auto 0;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      padding: 12px 25px;
+      font-size: 1rem;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: transform 0.2s, background 0.3s;
+    }
+    .builder-container button:hover {
+      background-color: #45a049;
+      transform: scale(1.05);
+    }
+    .result {
+      margin-top: 30px;
+      padding: 15px;
+      background: #e8fbe8;
+      border-radius: 10px;
+      text-align: center;
+      display: none;
+      animation: fadeIn 1s ease;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    footer {
+      background-color: #4CAF50;
+      color: white;
+      text-align: center;
+      padding: 20px 0;
+      margin-top: 40px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>DICED Salads</h1>
+  </header>
+  <nav>
+    <a href="index2.html">Home</a>
+    <a href="menu.html">Menu</a>
+    <a href="builder.html">Salad Builder</a>
+    <a href="about.html">About Us</a>
+  </nav>
+  <main>
+    <h2>Build Your Own Salad</h2>
+    <div class="builder-container">
+      <form id="saladForm">
+        <label for="base">Choose a Base:</label>
+        <select id="base" required>
+          <option value="">-- Select a base --</option>
+          <option value="Romaine Lettuce">Romaine Lettuce</option>
+          <option value="Spinach">Spinach</option>
+          <option value="Kale">Kale</option>
+          <option value="Quinoa Bowl">Quinoa Bowl</option>
+        </select>
+
+        <label>Choose Protein:</label>
+        <input type="checkbox" value="Grilled Chicken"> Grilled Chicken<br>
+        <input type="checkbox" value="Tofu"> Tofu<br>
+        <input type="checkbox" value="Salmon"> Salmon<br>
+        <input type="checkbox" value="Steak"> Steak<br>
+
+        <label>Choose Toppings:</label>
+        <input type="checkbox" value="Avocado"> Avocado<br>
+        <input type="checkbox" value="Tomatoes"> Tomatoes<br>
+        <input type="checkbox" value="Olives"> Olives<br>
+        <input type="checkbox" value="Cucumbers"> Cucumbers<br>
+        <input type="checkbox" value="Almonds"> Almonds<br>
+
+        <label for="dressing">Choose a Dressing:</label>
+        <select id="dressing" required>
+          <option value="">-- Select a dressing --</option>
+          <option value="Caesar">Caesar</option>
+          <option value="Ranch">Ranch</option>
+          <option value="Vinaigrette">Vinaigrette</option>
+          <option value="Olive Oil">Olive Oil</option>
+        </select>
+
+        <button type="submit">Build Salad</button>
+      </form>
+      <div class="result" id="result"></div>
+    </div>
+  </main>
+  <footer>
+    <p>Contact us: info@dicedsalads.com | (919) 900-7597</p>
+    <p>&copy; 2025 DICED Salads</p>
+  </footer>
+
+  <script>
+    const form = document.getElementById("saladForm");
+    const result = document.getElementById("result");
+
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+
+      const base = document.getElementById("base").value;
+      const dressing = document.getElementById("dressing").value;
+      const proteins = Array.from(form.querySelectorAll('input[type="checkbox"]:checked'))
+                            .map(el => el.value);
+
+      result.style.display = "block";
+      result.innerHTML = `
+        <h3>Your Custom Salad</h3>
+        <p><strong>Base:</strong> ${base}</p>
+        <p><strong>Protein(s):</strong> ${proteins.join(", ") || "None"}</p>
+        <p><strong>Dressing:</strong> ${dressing}</p>
+        <p><em>Freshly built just for you!</em></p>
+      `;
+    });
+  </script>
+</body>
+</html>
